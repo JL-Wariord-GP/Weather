@@ -1,0 +1,234 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li {
+    list-style: none;
+}
+
+span {
+    font-weight: bold;
+}
+
+.video {
+    position: fixed;
+    width: 1600px;
+    left: 0;
+}
+
+.App {
+    width: 349px;
+    height: 440px;
+    padding: 10px;
+    background: linear-gradient(to top, #ffd89b, #19547b);
+    box-shadow: 0px 10px 20px 5px #00000075;
+    margin: auto;
+    border-radius: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.box-h1-h2-sup {
+    text-align: center;
+}
+
+.box-img-ul-li {
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sytle-h2-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: -10px;
+}
+
+.btn {
+    border-style: none;
+}
+
+/** Boton Principal **/
+
+.contenedor_btn {
+    width: 260px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+.contenedor_btn .btn {
+    position: relative;
+    width: 264px;
+    height: 65px;
+    margin: 20px;
+}
+
+.contenedor_btn .btn a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(106 89 89 / 15%);
+    box-shadow: 0 15px 35px rgb(0 0 0 / 27%);
+    border-top: 1px solid rgb(255 255 255 / 16%);
+    border-radius: 30px;
+    color: #000;
+    z-index: 1;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 0.3s;
+    backdrop-filter: blur(15px);
+
+}
+
+.contenedor_btn .btn:hover a {
+    letter-spacing: 3px;
+}
+
+.contenedor_btn .btn a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
+    transform: skewX(45deg) translateX(0);
+    transition: 0.3s;
+}
+
+.contenedor_btn .btn:hover a::before {
+    transform: skewX(45deg) translateX(200%);
+}
+
+.contenedor_btn .btn::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -5px;
+    width: 30px;
+    height: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+    transition-delay: 0s;
+}
+
+.contenedor_btn .btn:hover::before {
+    bottom: 0;
+    height: 50%;
+    width: 80%;
+    border-radius: 30px;
+    transition-delay: 0.3s;
+}
+
+.contenedor_btn .btn::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -5px;
+    width: 30px;
+    height: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+    transition-delay: 0s;
+}
+
+.contenedor_btn .btn:hover::after {
+    top: 0;
+    height: 50%;
+    width: 80%;
+    border-radius: 30px;
+    transition-delay: 0.3s;
+
+}
+
+.contenedor_btn .btn:nth-child(1)::before,
+.contenedor_btn .btn:nth-child(1)::after {
+    background: #0097a7;
+    box-shadow: 0 0 5px #0097a7,
+        0 0 15px #0097a7,
+        0 0 30px #0097a7,
+        0 0 60px #0097a7;
+}
+
+/*! Loading */
+
+.loader {
+    background-color: #000;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circule-loader {
+    position: relative;
+    right: 170px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, transparent, transparent 40%, #e5f403);
+    animation: animate 2s linear infinite;
+}
+
+@keyframes animate {
+    
+    0% {
+        transform: rotate(0deg);
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        filter: hue-rotate(360deg);
+    }
+}
+
+.circule-loader::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    background: #000;
+    border-radius: 50%;
+    z-index: 1000;
+}
+
+.circule-loader::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: linear-gradient(45deg, transparent, transparent 40%, #e5f403);
+    border-radius: 50%;
+    z-index: 1000;
+    z-index: 1;
+    filter: blur(30px);
+}
