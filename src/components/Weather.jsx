@@ -60,7 +60,6 @@ const Weather = ({ coordinates }) => {
         }
         return currentVideo
     } */
-    console.log(weather);
     //*!================== FUNCTION WITH OBJECT =====================*/
     function getCurrentVideo2(icon) {
         let videos = {
