@@ -246,17 +246,15 @@ span {
 /*! ===== Responsive ===== */
 @media (max-width: 1000px) {
     video {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         bottom: 0;
         right: 0;
-        max-width: 1600px !important;
-        width: 1040px !important;
-    }
-
-    .App {
-
+        width: 178vh !important;
+        max-height: 1600px !important;
+        margin: auto;
+        padding: 0;
     }
 }
 
