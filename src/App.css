@@ -1,3 +1,6 @@
+
+/*! ===== BODY ===== */
+
 body {
     margin: 0;
     padding: 0;
@@ -8,11 +11,14 @@ body {
 
 ul li {
     list-style: none;
+    padding: 6px 0;
 }
 
 span {
     font-weight: bold;
 }
+
+/*! ===== VIDEO ===== */
 
 .video {
     position: fixed;
@@ -20,9 +26,11 @@ span {
     left: 0;
 }
 
+/*! ===== APP ===== */
+
 .App {
     width: 349px;
-    height: 440px;
+    height: 445px;
     padding: 10px;
     background: linear-gradient(to top, #ffd89b, #19547b);
     box-shadow: 0px 10px 20px 5px #00000075;
@@ -35,6 +43,10 @@ span {
     bottom: 0;
 }
 
+.iconWeather {
+    padding: 0 10px;
+}
+
 .box-h1-h2-sup {
     text-align: center;
 }
@@ -44,6 +56,7 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 10rem;
 }
 
 .sytle-h2-btn {
@@ -54,11 +67,8 @@ span {
     margin: -10px;
 }
 
-.btn {
-    border-style: none;
-}
 
-/** Boton Principal **/
+/*! ===== BTN ===== */
 
 .contenedor_btn {
     width: 260px;
@@ -172,7 +182,7 @@ span {
         0 0 60px #0097a7;
 }
 
-/*! Loading */
+/*! ===== Loading ===== */
 
 .loader {
     background-color: #000;
@@ -231,4 +241,12 @@ span {
     z-index: 1000;
     z-index: 1;
     filter: blur(30px);
+}
+
+/*! ===== Responsive ===== */
+
+@media (max-width: 768px) {
+    .App {
+        width: 350px;
+    }
 }
