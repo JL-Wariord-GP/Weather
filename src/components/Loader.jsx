@@ -2,10 +2,8 @@ import React from 'react'
 
 const Loader = () => {
   return (
-    <div className='loader'>
-      <div className='circule-loader'>
-      </div>
-    </div>
+      <div className='loader'></div>
+
   )
 }
 

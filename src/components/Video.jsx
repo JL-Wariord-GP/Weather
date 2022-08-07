@@ -1,13 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ReactPlayer from 'react-player'
 
 
-const Video = ({ iconImg, imgURL }) => {
+const Video = () => {
   return (
     <div>
-        <ReactPlayer
-          url={VideoSunny}
-        />
+        <ReactPlayer/>
     </div>
   )
 }

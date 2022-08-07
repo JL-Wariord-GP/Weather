@@ -17,7 +17,8 @@ import ReactPlayer from 'react-player'
 
 
 const Weather = ({ coordinates }) => {
-    const [isLoading, setIsLoading] = useState(true) 
+    const [isLoading, setIsLoading] = useState(true)
+    const [isVideo, setIsVideo] = useState(true)
     const [weather, setWeather] = useState()
     const [temperature, setTemperature] = useState()
     const [infoTemp, setInfoTemp] = useState(true)
@@ -36,6 +37,7 @@ const Weather = ({ coordinates }) => {
                 .then(res => {
                     setWeather(res.data)
                     setIsLoading(false)
+                    setIsVideo(false)
                     const dataTemp = {
                         celsius: `${Math.round(res.data.main.temp - 273.15)} °C`,
                         fahrenheit: `${Math.round((res.data.main.temp - 273.15) * 9 / 5 + 32)} °F`
@@ -58,7 +60,7 @@ const Weather = ({ coordinates }) => {
         }
         return currentVideo
     } */
- console.log(weather);
+    console.log(weather);
     //*!================== FUNCTION WITH OBJECT =====================*/
     function getCurrentVideo2(icon) {
         let videos = {
@@ -130,61 +132,66 @@ const Weather = ({ coordinates }) => {
     }
 
     return (
-        <div className='video'>
-
+        <div>
             {
                 isLoading ?
                     <Loader />
                     :
-                    <weather weather={weather} />
+                    <weather weather={weather}/> 
+                    &&
+                    <ReactPlayer
+                    playing={true}
+                    loop={true}
+                    url={getCurrentVideo2(icon)}
+                    muted={true}
+                    width="100%"
+                    height="100%"
+                    background-size="cover"
+                    />    
             }
+            {
+                isVideo ?
+                    <div className='video'></div>
+                    :
+                    <div className="App" >
+                    {
+                        //! HEADER
+                    }
 
-            <ReactPlayer
-                playing={true}
-                loop={true}
-                url={getCurrentVideo2(icon)}
-                muted={true}
-                width="100%"
-                height="100%"
-            />
-
-            <div className="App" >
-                {
-                    //! HEADER
-                }
-            
-                <div className='box-h1-h2-sup' >
-                    <h1>Weather</h1>
-                    <h2>{weather?.name}, {weather?.sys.country}</h2>
-                </div>
-
-                {
-                    //! BODY BRANCH
-                }
-
-                <div className='box-img-ul-li' >
-                    <img src={imgURL} />
-                    <ul>
-                        <h2>&#34;{weather?.weather[0].description}&#34;</h2>
-                        <li><i className="fa-solid fa-wind iconWeather"></i><span> Wind speed:</span> {weather?.wind.speed} m/s </li>
-                        <li><i className="fa-solid fa-cloud iconWeather"></i><span> Clouds:</span> {weather?.clouds.all} %</li>
-                        <li><i className="fa-solid fa-temperature-three-quarters iconWeather"></i><span> Pressure:</span> {weather?.main.pressure} hPa</li>
-                    </ul>
-                </div>
-
-                {
-                    //! CALCULATING TEMPERATURE
-                }
-
-                <div className='sytle-h2-btn'>
-                    <h2>{infoTemp ? temperature?.celsius : temperature?.fahrenheit}</h2>
-                    <div className='contenedor_btn'>
-                        <div className='btn' onClick={getBtn} ><a>{infoTemp ? 'Change to °F' : 'Change to °C'}</a></div>
+                    <div className='box-h1-h2-sup' >
+                        <h1>Weather</h1>
+                        <h2>{weather?.name}, {weather?.sys.country}</h2>
                     </div>
-                </div>
 
-            </div>
+                    {
+                        //! BODY BRANCH
+                    }
+
+                    <div className='box-img-ul-li' >
+                        <img src={imgURL} />
+                        <ul>
+                            <h2>&#34;{weather?.weather[0].description}&#34;</h2>
+                            <li><i className="fa-solid fa-wind iconWeather"></i><span> Wind speed:</span> {weather?.wind.speed} m/s </li>
+                            <li><i className="fa-solid fa-cloud iconWeather"></i><span> Clouds:</span> {weather?.clouds.all} %</li>
+                            <li><i className="fa-solid fa-temperature-three-quarters iconWeather"></i><span> Pressure:</span> {weather?.main.pressure} hPa</li>
+                        </ul>
+                    </div>
+
+                    {
+                        //! CALCULATING TEMPERATURE
+                    }
+
+                    <div className='sytle-h2-btn'>
+                        <h2>{infoTemp ? temperature?.celsius : temperature?.fahrenheit}</h2>
+                        <div className='contenedor_btn'>
+                            <div className='btn' onClick={getBtn} ><a>{infoTemp ? 'Change to °F' : 'Change to °C'}</a></div>
+                        </div>
+                    </div>
+
+                    </div>  
+            }
         </div>
+
     )
 }
 
