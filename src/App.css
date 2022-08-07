@@ -50,6 +50,7 @@ span {
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 1;
 }
 
 .iconWeather {
@@ -244,10 +245,18 @@ span {
 
 /*! ===== Responsive ===== */
 @media (max-width: 1000px) {
-    body {
-        max-width: 1600px;
-        width: 1600px;
-        position: fixed;
+    video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        max-width: 1600px !important;
+        width: 1040px !important;
+    }
+
+    .App {
+
     }
 }
 

@@ -134,22 +134,6 @@ const Weather = ({ coordinates }) => {
     return (
         <div>
             {
-                isLoading ?
-                    <Loader />
-                    :
-                    <weather weather={weather}/> 
-                    &&
-                    <ReactPlayer
-                    playing={true}
-                    loop={true}
-                    url={getCurrentVideo2(icon)}
-                    muted={true}
-                    width="100%"
-                    height="100%"
-                    background-size="cover"
-                    />    
-            }
-            {
                 isVideo ?
                     <div className='video'></div>
                     :
@@ -189,6 +173,21 @@ const Weather = ({ coordinates }) => {
                     </div>
 
                     </div>  
+            }
+            {
+                isLoading ?
+                    <Loader />
+                    :
+                    <weather weather={weather}/> 
+                    &&
+                    <ReactPlayer
+                    playing={true}
+                    loop={true}
+                    url={getCurrentVideo2(icon)}
+                    muted={true}
+                    width="100%"
+                    height="100%"
+                    />    
             }
         </div>
 
