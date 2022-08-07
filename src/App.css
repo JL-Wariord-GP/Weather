@@ -1,12 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tangerine&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/*! ===== BODY ===== */
+* {
+  transition-property: background, transform, center ;
+  transition-duration: .8s;
+  animation-delay: .8s;
+  transition-timing-function: linear ;
+}
 
 body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin: 0;
+  padding: 0;
+  max-width: 1200vh;
 }
 
 ul li {
@@ -247,6 +254,22 @@ span {
 
 @media (max-width: 768px) {
     .App {
-        width: 350px;
+        width: 310px;
+        font-size: 12px;
+        height: 25rem;
+    }
+
+}
+
+@media (max-width: 300px) {
+    .App {
+        width: 220px;
+        font-size: 10px;
+        height: 28rem;
+    }
+
+    .box-img-ul-li {
+        flex-direction: column;
+        height: 15rem;
     }
 }

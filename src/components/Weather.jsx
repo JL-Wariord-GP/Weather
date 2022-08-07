@@ -3,10 +3,15 @@ import React, { useEffect, useState } from 'react'
 import Loader from './Loader'
 import VideoSunnyWeather from '../video/sunny-weather-01d.mp4'
 import VideoCloudDay from '../video/cloudDay-03d.mp4'
+import VideoBrokenClouds from '../video/BrokenClouds-04d.mp4'
 import VideoRainyWeather from '../video/rainyWeather-09d.mp4'
+import VideoColDay from '../video/coldDay-13d.mp4'
+import VideoCloudyDay from '../video/cloudyDay-50d.mp4'
 import VideoClearNigth from '../video/clearNight-01n.mp4'
 import VideoOverClouds from '../video/overcastClouds-03n.mp4'
 import VideoRainyNight from '../video/nightRain-09n.mp4'
+import VideoStormNight from '../video/storm-11n.mp4'
+import VideoColdNight from '../video/coldNight-13n.mp4'
 import VideoDefault from '../video/default.mp4'
 import ReactPlayer from 'react-player'
 
@@ -53,7 +58,7 @@ const Weather = ({ coordinates }) => {
         }
         return currentVideo
     } */
- 
+ console.log(weather);
     //*!================== FUNCTION WITH OBJECT =====================*/
     function getCurrentVideo2(icon) {
         let videos = {
@@ -61,8 +66,10 @@ const Weather = ({ coordinates }) => {
             '01d': VideoSunnyWeather,
             '02d': VideoSunnyWeather,
             '03d': VideoCloudDay,
-            '04d': VideoRainyWeather,
+            '04d': VideoBrokenClouds,
             '09d': VideoRainyWeather,
+            '13d': VideoColDay,
+            '50d': VideoCloudyDay,
 
             //*!================== Nigth =====================*/
 
@@ -71,6 +78,8 @@ const Weather = ({ coordinates }) => {
             '03n': VideoOverClouds,
             '04n': VideoRainyNight,
             '09n': VideoRainyNight,
+            '11n': VideoStormNight,
+            '13n': VideoColdNight,
             'default': VideoDefault
         }
         //*!================== Day =====================*/
@@ -89,6 +98,12 @@ const Weather = ({ coordinates }) => {
         if (iconImg == '09d') {
             return videos['09d']
         }
+        if (iconImg == '13d') {
+            return videos['13d']
+        }
+        if (iconImg == '50d') {
+            return videos['50d']
+        }
         //*!================== Nigth =====================*/
         if (iconImg == '01n') {
             return videos['01n']
@@ -104,6 +119,12 @@ const Weather = ({ coordinates }) => {
         }
         if (iconImg == '09n') {
             return videos['09n']
+        }
+        if (iconImg == '11n') {
+            return videos['11n']
+        }
+        if (iconImg == '13n') {
+            return videos['13n']
         }
         return videos[icon] || videos["default"]
     }
@@ -125,7 +146,6 @@ const Weather = ({ coordinates }) => {
                 muted={true}
                 width="100%"
                 height="100%"
-
             />
 
             <div className="App" >
